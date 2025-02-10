@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .main{
+    height: 100%;
+  }
+  .container {
+    background: white;
+    width: 380px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .facebook-logo {
+    color: #1877f2;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  .top{
+    text-align: center;
+    padding: 5px;
+   
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #ccc; /* Creates the horizontal line */
+    margin: 10px 0; /* Adds spacing around the line */
+    width: 100%; /* Ensures the line spans the full width */
+  }
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+  p1{
+    text-align: center;
+    color:#606770 ;
+    margin: 5px;
+
+  }
+  .pcustom{
+    text-align: left;
+    font-size: 12px;
+    margin: 2%;
+    color: #606770;
+  }
+  
+  .info-text {
+    text-align: justify;
+    color: #606770;
+    font-size: 10px;
+  }
+  .radio-group label{
+  justify-content: space-between; /* Distributes the options evenly */
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc; /* Adds a border */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1px; 
+  width: 100px;
+  }
+  
+  /* Inline Input Row Styling */
+  .input-row-inline {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .input-row {
+    margin-bottom: 15px;
+  }
+  
+  .input-field,.input-field2, .dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  a{
+    text-decoration: none;
+  }
+  .input-field:focus, .dropdown:focus {
+    outline: none;
+  }
+  
+  .input-field.invalid, .dropdown.invalid {
+    border-color: red;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  .already-account{
+    text-align: center;
+    color: #1877f2;
+    text-decoration: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    margin-left: 28%;
+    margin-top: 10%;
+  }
+  .submit-button {
+    display: block; /* Ensure the button behaves like a block-level element */
+    margin: 20px auto; /* Automatically adjust margins to center horizontally */
+    background-color: #42b72a;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    padding: 10px;
+    border: none;
+    width: 50%;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+ 
+  
+
+.input-field.invalid + .error-icon {
+    display: block;
+}
+
+  
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="facebook-logo">facebook</h1>
+
+        <div class="container">
+            <div class="form-box">
+                <div class="top">
+
+                    <h2>Create a new account</h2>
+                    <p class="p1">It's quick and easy.</p>
+                    <hr>
+                </div>
+                
+                <form id="registration-form">
+                    <!-- First Name and Surname in a Single Row -->
+                    <div class="input-row-inline">
+                       <input type="text" id="first-name" class="input-field" placeholder="First name" required>
+
+                        <input type="text" id="surname" class="input-field" placeholder="Surname" required>
+                    </div>
+
+                    <label for="dob" class="label">Date of birth</label>
+                    <!-- Date of Birth in a Single Row -->
+                    <div class="input-row-inline">
+                        <select id="day" class="dropdown">
+                            <option value="" disabled selected>Day</option>
+                        </select>
+                        <select id="month" class="dropdown">
+                            <option value="" disabled selected>Month</option>
+                        </select>
+                        <select id="year" class="dropdown">
+                            <option value="" disabled selected>Year</option>
+                        </select>
+                    </div>
+
+                    <!-- Gender Selection -->
+                    <div class="input-row">
+                        <label class="label">Gender</label>
+                        <div class="radio-group">
+                            <label>
+                                Female
+                                <input type="radio" class="gender" name="gender" value="female">
+                            </label>
+                            <label>
+                                Male
+                                <input type="radio" class="gender" name="gender" value="male">
+                            </label>
+                            <label>
+                                Custom
+                                <input type="radio" class="gender" name="gender" value="custom" id="custom-gender">
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Custom Gender Options -->
+                    <div id="custom-gender-options" style="display: none;">
+                        <div class="input-row">
+                            <!-- <label for="pronoun" class="label">Select your pronoun</label> -->
+                            <select id="pronoun" class="dropdown" required>
+                                <option value="" disabled selected>Select your pronoun</option>
+                                <option value="she">She: "Wish her a happy birthday!"</option>
+                                <option value="he">He: "Wish him a happy birthday!"</option>
+                                <option value="they">They: "Wish them a happy birthday!"</option>
+                            </select>
+                            <p class="pcustom">Your pronoun is visible to everyone.</p>
+                        </div>
+                        <div class="input-row">
+                            <input type="text" id="optional-gender" class="input-field2"
+                                placeholder="Gender (optional)">
+                        </div>
+                    </div>
+
+                    <!-- Contact Info and Password -->
+                    <div class="input-row">
+                        <input type="text" id="contact" class="input-field" placeholder="Mobile number or email address"
+                            required>
+                    </div>
+                    <div class="input-row">
+                        <input type="password" id="password" class="input-field" placeholder="New password" required>
+                    </div>
+
+                    <!-- Info Text -->
+                    <p class="info-text">
+                        People who use our service may have uploaded your contact information to Facebook. <a
+                            href="https://www.facebook.com/r.php?locale=en_GB&display=page">Learn more</a>.
+                    </p>
+                    <P class="info-text">
+                        By clicking Sign Up, you agree to our <a
+                            href="https://www.facebook.com/legal/terms/update">Terms</a>, <a
+                            href="https://www.facebook.com/privacy/policy/?entry_point=data_policy_redirect&entry=0">Privacy
+                            Policy</a> and <a
+                            href="https://www.facebook.com/privacy/policies/cookies/?entry_point=cookie_policy_redirect&entry=0">Cookies
+                            Policy</a>. You may receive
+                        SMS notifications from us and can opt out at any time.
+                    </P>
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-button">Sign Up</button>
+                </form>
+                <a href="#" class="already-account">Already have an account?</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Reference elements
+        const customGenderRadio = document.getElementById('custom-gender');
+        const customGenderOptions = document.getElementById('custom-gender-options');
+
+        // Show/hide custom gender fields based on selection
+        document.querySelectorAll('input[name="gender"]').forEach((radio) => {
+            radio.addEventListener('change', () => {
+                if (customGenderRadio.checked) {
+                    customGenderOptions.style.display = 'block';
+                } else {
+                    customGenderOptions.style.display = 'none';
+                }
+            });
+        });
+
+        // Add red border if field is empty on focus out
+        document.querySelectorAll('.input-field, .dropdown').forEach((input) => {
+            input.addEventListener('blur', () => {
+                if (!input.value.trim()) {
+                    input.classList.add('invalid');
+                } else {
+                    container.querySelector('.error-icon').style.display = 'none';
+                    input.classList.remove('invalid');
+                }
+            });
+        });
+
+        // Prevent form submission if any field is invalid
+        document.getElementById('registration-form').addEventListener('submit', (event) => {
+            let isValid = true;
+
+            // Validate all required fields
+            document.querySelectorAll('.input-field, .dropdown').forEach((input) => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('invalid');
+                }
+            });
+
+            // Prevent submission if invalid
+            if (!isValid) event.preventDefault();
+        });
+
+
+        // script.js
+
+        // Function to populate days, months, and years
+        function populateDateFields() {
+            const daySelect = document.getElementById("day");
+            const monthSelect = document.getElementById("month");
+            const yearSelect = document.getElementById("year");
+
+            // Populate days
+            for (let i = 1; i <= 31; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                daySelect.appendChild(option);
+            }
+
+            // Populate months
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            months.forEach((month, index) => {
+                const option = document.createElement("option");
+                option.value = index + 1;
+                option.textContent = month;
+                monthSelect.appendChild(option);
+            });
+
+            // Populate years (100 years range)
+            const currentYear = new Date().getFullYear();
+            for (let i = currentYear; i >= currentYear - 100; i--) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = i;
+                yearSelect.appendChild(option);
+            }
+
+            // Set default date to current date
+            const today = new Date();
+            daySelect.value = today.getDate();
+            monthSelect.value = today.getMonth() + 1; // Months are zero-based
+            yearSelect.value = today.getFullYear();
+        }
+
+        // Call the function when the page loads
+        document.addEventListener("DOMContentLoaded", populateDateFields);
+
+    </script>
+</body>
+
+</html>
